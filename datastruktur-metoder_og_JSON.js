@@ -52,10 +52,12 @@ const peopleArrayWithObjects = [
 
 //! 1.2
 
-/* console.log all the objects of the first and last persons using Object.entries. */
+/* console.log all the objects of the first and last persons using Object.entries. Expected output: 
+(6) [Array(2), Array(2), Array(2), Array(2), Array(2), Array(2)]
+*/
 
 //! 1.3
-/* console.log the hobbies of the first person using Object.entries (tip: this is unnecessary code, but do it just to see the difference with what needs to be done later). */
+/* console.log the hobbies of the first person using Object.entries (tip: this is unnecessary code, but do it just to see the difference with what needs to be done later). Expected output is to be an array with 4 elements */
 
 //! 1.4
 
@@ -63,7 +65,7 @@ const peopleArrayWithObjects = [
 
 //! 1.5.
 
-/* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson: */
+/* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. Expected output is an array with common hobbies */
 
 //! 1.6.
 
@@ -79,7 +81,7 @@ const peopleArrayWithObjects = [
 
 //! 2.1
 
-/* Separate odd and even numbers in the array you created in task 2. console.log the new arrays. */
+/* Separate odd and even numbers in the array you created in task 2 into two new arrays. console.log the new arrays. */
 
 //! 2.2
 
@@ -91,7 +93,7 @@ const peopleArrayWithObjects = [
 
 //! 2.4
 
-/* Create a function that adds up the numbers in different arrays. Use 2 parameters to be able to use 2 different arrays. Write an if-else statement that console logs which of the two arrays has the largest sum. Remember an else statement that says if both are equal (very unlikely) */
+/* Create a function that adds up the numbers in different arrays. Use 2 parameters to be able to use 2 different arrays (the odds and evens arrays you created earlier). Write an if-else statement that console logs which of the two arrays has the largest sum. Remember an else statement that says if both are equal (very unlikely) */
 
 //! 2.5:
 
