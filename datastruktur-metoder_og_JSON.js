@@ -49,9 +49,15 @@ console.log(peopleArrayWithObjects);
 //! 1.1:
 
 /* create variables for firstPerson (first person object in the array) and lastPerson (last person object in the array) for peopleArrayWithObjects: */
+const firstPerson = peopleArrayWithObjects[0];
+console.log(firstPerson);
+const lastPerson = peopleArrayWithObjects[peopleArrayWithObjects.length - 1];
+console.log(lastPerson);
 
 //! 1.2
 
+console.log(Object.entries(firstPerson));
+console.log(Object.entries(lastPerson));
 /* console.log all the objects of the first and last persons using Object.entries. Expected output: 
 (6) [Array(2), Array(2), Array(2), Array(2), Array(2), Array(2)]
 */
