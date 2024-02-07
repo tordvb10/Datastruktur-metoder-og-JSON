@@ -204,16 +204,18 @@ console.log(createrandomarrayrecrusive(10));
 
 /* Write a function that adds up all the numbers in the different arrays. So the sum of odd numbers in one result and the sum of even numbers in another result. 
 Use a parameter in the function so that the same function can be used on both arrays. console.log the results. */
+function SumElsInArray(array) {
+  let sum = 0;
+  array.forEach((element) => {
+    sum += element;
+  });
+  return sum;
+}
+
 function sumFilterDelimiter(arrays, Delimter, Rest) {
   let sums = [];
-  let ToGetSumfOf;
   arrays.forEach((array) => {
-    let sum = 0;
-    ToGetSumfOf = array.filter((v) => (v = v % Delimter === Rest));
-    ToGetSumfOf.forEach((element) => {
-      sum += element;
-    });
-    sums.push(sum);
+    sums.push(SumElsInArray(array.filter((v) => (v = v % Delimter === Rest))));
   });
   return sums;
 }
@@ -226,6 +228,20 @@ console.log(sumFilterDelimiter(testsvar, 2, 0)); //consoles all even number in 1
 
 /* Create a function that adds up the numbers in different arrays. Use 2 parameters to be able to use 2 different arrays (the odds and evens arrays you created earlier). 
 Write an if-else statement that console logs which of the two arrays has the largest sum. Remember an else statement that says if both are equal (very unlikely) */
+
+function checkIfOddOrEvenIsGreater(arrays) {
+  let odds = SumElsInArray(sumFilterDelimiter(arrays, 2, 1));
+  let evens = SumElsInArray(sumFilterDelimiter(arrays, 2, 0));
+  if (odds - evens > 0) {
+    console.log("There are more odd numbers");
+  } else if (odds - evens < 0) {
+    console.log("There are more even numbers");
+  } else {
+    console.log("There is equal amount of both even and odd numbers");
+  }
+}
+
+checkIfOddOrEvenIsGreater(testsvar);
 
 //! 2.5:
 
