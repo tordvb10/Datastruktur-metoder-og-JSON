@@ -1,50 +1,50 @@
 const peopleArrayWithObjects = [
-    {
-        id: 1,
-        name: "Alice",
-        age: 28,
-        email: "alice@example.com",
-        country: "USA",
-        hobbies: ["Reading", "Hiking", "Photography", "Swimming"]
-    },
-    {
-        id: 2,
-        name: "Bob",
-        age: 35,
-        email: "bob@example.com",
-        country: "Canada",
-        hobbies: ["Cooking", "Playing guitar", "Gardening", "Traveling"]
-    },
-    {
-        id: 3,
-        name: "Charlie",
-        age: 22,
-        email: "charlie@example.com",
-        country: "UK",
-        hobbies: ["Painting", "Skiing", "Music", "Cycling"]
-    },
-    {
-        id: 4,
-        name: "David",
-        age: 40,
-        email: "david@example.com",
-        country: "Australia",
-        hobbies: ["Swimming", "Fishing", "Reading"]
-    },
-    {
-        id: 5,
-        name: "Eva",
-        age: 32,
-        email: "eva@example.com",
-        country: "Germany",
-        hobbies: ["Skiing", "Playing Guitar", "Photography", "Cooking"]
-    }
-]
-
+  {
+    id: 1,
+    name: "Alice",
+    age: 28,
+    email: "alice@example.com",
+    country: "USA",
+    hobbies: ["Reading", "Hiking", "Photography", "Swimming"],
+  },
+  {
+    id: 2,
+    name: "Bob",
+    age: 35,
+    email: "bob@example.com",
+    country: "Canada",
+    hobbies: ["Cooking", "Playing guitar", "Gardening", "Traveling"],
+  },
+  {
+    id: 3,
+    name: "Charlie",
+    age: 22,
+    email: "charlie@example.com",
+    country: "UK",
+    hobbies: ["Painting", "Skiing", "Music", "Cycling"],
+  },
+  {
+    id: 4,
+    name: "David",
+    age: 40,
+    email: "david@example.com",
+    country: "Australia",
+    hobbies: ["Swimming", "Fishing", "Reading"],
+  },
+  {
+    id: 5,
+    name: "Eva",
+    age: 32,
+    email: "eva@example.com",
+    country: "Germany",
+    hobbies: ["Skiing", "Playing Guitar", "Photography", "Cooking"],
+  },
+];
 
 //! 1.
 
 /* console.log the array */
+console.log(peopleArrayWithObjects);
 
 //! 1.1:
 
