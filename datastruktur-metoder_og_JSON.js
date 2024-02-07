@@ -64,7 +64,8 @@ console.log(Object.entries(lastPerson));
 */
 
 //! 1.3
-/* console.log the hobbies of the first person using Object.entries (tip: this is unnecessary code, but do it just to see the difference with what needs to be done later). Expected output is to be an array with 4 elements */
+/* console.log the hobbies of the first person using Object.entries (tip: this is unnecessary code, but do it just to see the difference with what needs to be done later). 
+Expected output is to be an array with 4 elements */
 
 console.log(Object.entries(firstPerson.hobbies));
 console.log(Object.entries(lastPerson.hobbies));
@@ -149,22 +150,82 @@ body.innerHTML += "Oppgave 1.7 er også gjort i oppgave 1.6";
 //! 2
 
 /* Generate a random array with 10 random numbers between 1 and 100. console.log the array. */
+function getrandom(min, max) {
+  return Math.floor(Math.random() * (1 + max - min) + min);
+}
+function createrandomarray(indexes, min = 1, max = 100) {
+  return Array.from(new Array(indexes), () => getrandom(min, max));
+}
+function createrandomarrayrecrusive(indexes, depth = 2, min = 1, max = 100) {
+  let svar = [];
+  for (let i = 0; i < indexes; i++) {
+    if (depth === 1) {
+      return createrandomarray(indexes);
+    }
+    svar.push(createrandomarrayrecrusive(indexes, depth - 1));
+  }
+  return svar;
+}
+
+console.log(getrandom(1, 100));
+let result = createrandomarray(10);
+
+console.log(result);
 
 //! 2.1
 
 /* Separate odd and even numbers in the array you created in task 2 into two new arrays. console.log the new arrays. */
 
+let odd = result.filter((v) => (v = v % 2 === 1));
+console.log(odd);
+let even = result.filter((v) => (v = v % 2 === 0));
+console.log(even);
+
 //! 2.2
 
 /* Write a function that finds the largest number in the different arrays. Use a parameter so that the same function can be used on both arrays. Tips: Math.max() */
 
+function largestElements(arrays) {
+  let Maxs = [];
+  arrays.forEach((array) => {
+    let Max = -Infinity;
+    array.forEach((element) => {
+      Max = Math.max(Max, element);
+    });
+    Maxs.push(Max);
+  });
+  return Maxs;
+}
+let testsvar = createrandomarrayrecrusive(10);
+console.log(testsvar);
+console.log(largestElements(testsvar));
+console.log(createrandomarrayrecrusive(10));
 //! 2.3.
 
-/* Write a function that adds up all the numbers in the different arrays. So the sum of odd numbers in one result and the sum of even numbers in another result. Use a parameter in the function so that the same function can be used on both arrays. console.log the results. */
+/* Write a function that adds up all the numbers in the different arrays. So the sum of odd numbers in one result and the sum of even numbers in another result. 
+Use a parameter in the function so that the same function can be used on both arrays. console.log the results. */
+function sumFilterDelimiter(arrays, Delimter, Rest) {
+  let sums = [];
+  let ToGetSumfOf;
+  arrays.forEach((array) => {
+    let sum = 0;
+    ToGetSumfOf = array.filter((v) => (v = v % Delimter === Rest));
+    ToGetSumfOf.forEach((element) => {
+      sum += element;
+    });
+    sums.push(sum);
+  });
+  return sums;
+}
+
+console.log(sumFilterDelimiter(testsvar, 2, 1)); //consoles all odd number in 10 array testsvar is a "random" generated (10) [Array(10),....]
+
+console.log(sumFilterDelimiter(testsvar, 2, 0)); //consoles all even number in 10 array testsvar is a "random" generated (10) [Array(10),....]
 
 //! 2.4
 
-/* Create a function that adds up the numbers in different arrays. Use 2 parameters to be able to use 2 different arrays (the odds and evens arrays you created earlier). Write an if-else statement that console logs which of the two arrays has the largest sum. Remember an else statement that says if both are equal (very unlikely) */
+/* Create a function that adds up the numbers in different arrays. Use 2 parameters to be able to use 2 different arrays (the odds and evens arrays you created earlier). 
+Write an if-else statement that console logs which of the two arrays has the largest sum. Remember an else statement that says if both are equal (very unlikely) */
 
 //! 2.5:
 
