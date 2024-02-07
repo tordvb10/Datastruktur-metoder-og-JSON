@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const peopleArrayWithObjects = [
   {
     id: 1,
@@ -81,19 +82,69 @@ console.log(lastPerson.hobbies.map((hobby, index) => [index, hobby]));
 //! 1.5.
 
 /* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. Expected output is an array with common hobbies */
-console.log(lastPerson.hobbies.filter((v) => firstPerson.hobbies.includes(v)));
-
-//console.log(
-//firstPerson["hobbies"].filter(([value,2]) => typeof value === "Photography")
-//);
-
+console.log(B_person_has_A_person_hobbies(lastPerson, firstPerson));
+function B_person_has_A_person_hobbies(Aperson, Bperson) {
+  return Aperson.hobbies.filter((v) => Bperson.hobbies.includes(v));
+}
 //! 1.6.
 
-/* Use .map to display all the persons with their information on their page with the DOM. It should also show what hobbies they have in common. Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
+/* Use .map to display all the persons with their information on their page with the DOM. It should also show what hobbies they have in common. 
+Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
+
+function addliel(element) {
+  let lis = document.createElement("li");
+  lis.textContent = element;
+  return lis;
+}
+
+function displayPersonsInfo(Persons) {
+  let ul = document.createElement("ul");
+  Persons.forEach((person) => {
+    ul = document.createElement("ul");
+    Object.keys(person).forEach((nokkel) => {
+      switch (nokkel) {
+        case "hobbies":
+          let ulhobby = document.createElement("ul");
+          let equalhobbies = CheckEqualHobbiesTHEperson(person);
+          Object.keys(equalhobbies).forEach((felleshobbyperson) => {
+            ulhobby.appendChild(
+              addliel(
+                `${felleshobbyperson} er: ${equalhobbies[
+                  felleshobbyperson
+                ].join(", ")}`
+              )
+            );
+          });
+          let lihobby = addliel(`Felles interesse ${person.name} har med:`);
+          lihobby.appendChild(ulhobby);
+          ul.appendChild(lihobby);
+          break;
+        default:
+          ul.appendChild(addliel(`${nokkel} = ${person[nokkel]}`));
+          break;
+      }
+    });
+    body.appendChild(ul);
+  });
+}
+displayPersonsInfo(peopleArrayWithObjects);
 
 //! 1.7
 
 /* Use .filter to find all persons who have the same hobby as firstPerson. Display this with the DOM */
+function CheckEqualHobbiesTHEperson(Theperson) {
+  let returning = {};
+  peopleArrayWithObjects.forEach((person) => {
+    if (Theperson.id === person.id) {
+      return;
+    }
+    returning[person.name] = B_person_has_A_person_hobbies(Theperson, person);
+  });
+  return returning;
+}
+console.log(CheckEqualHobbiesTHEperson(firstPerson));
+body.innerHTML += "Oppgave 1.7 er også gjort i oppgave 1.6";
+//B_person_has_A_person_hobbies(firstPerson)
 
 //! 2
 
