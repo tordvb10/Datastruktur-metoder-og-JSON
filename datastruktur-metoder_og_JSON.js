@@ -78,10 +78,7 @@ console.log(lastPerson.hobbies.map((hobby, index) => [index, hobby]));
 //! 1.5.
 
 /* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. Expected output is an array with common hobbies */
-
-//console.log(
-//firstPerson["hobbies"].filter(([value,2]) => typeof value === "Photography")
-//);
+console.log(lastPerson.hobbies.filter((v) => firstPerson.hobbies.includes(v)));
 
 //! 1.6.
 
