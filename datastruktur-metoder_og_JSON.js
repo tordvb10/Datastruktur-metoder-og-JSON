@@ -175,7 +175,7 @@ function createrandomarrayrecrusive(indexes, depth = 2, min = 1, max = 100) {
 }
 
 console.log(getrandom(1, 100));
-let result = createrandomarray(10);
+const result = createrandomarray(10);
 
 console.log(result);
 
@@ -199,9 +199,9 @@ displayArrayDOM(result);
 
 /* Separate odd and even numbers in the array you created in task 2 into two new arrays. console.log the new arrays. */
 
-let odd = result.filter((v) => (v = v % 2 === 1));
+const odd = result.filter((v) => (v = v % 2 === 1));
 console.log(odd);
-let even = result.filter((v) => (v = v % 2 === 0));
+const even = result.filter((v) => (v = v % 2 === 0));
 console.log(even);
 
 //? ordre fra oppgave 2.5 gjøres her.
@@ -228,7 +228,7 @@ function largestElements(arrays) {
   });
   return Maxs;
 }
-let testsvar = createrandomarrayrecrusive(10);
+const testsvar = createrandomarrayrecrusive(10);
 console.log(testsvar);
 console.log(largestElements(testsvar));
 
@@ -257,14 +257,19 @@ function sumFilterDelimiter(arrays, Delimter, Rest) {
   });
   return sums;
 }
-
-console.log(sumFilterDelimiter(testsvar, 2, 1));
+const summArrayODDNumbers = sumFilterDelimiter(testsvar, 2, 1);
+console.log(summArrayODDNumbers);
 //consoles all odd number in 10 array testsvar is a "random" generated (10) [Array(10),....]
 
-console.log(sumFilterDelimiter(testsvar, 2, 0));
+const summArrayEVENNumbers = sumFilterDelimiter(testsvar, 2, 0);
+console.log(summArrayEVENNumbers);
 //consoles all even number in 10 array testsvar is a "random" generated (10) [Array(10),....]
 
 //? ordre fra oppgave 2.5 gjøres her.
+body.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.3, under er summert odde tall fra alle arrays:`;
+displayArrayDOM(summArrayODDNumbers);
+body.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.3, under er summert partall fra alle arrays:`;
+displayArrayDOM(summArrayEVENNumbers);
 
 //! 2.4
 
@@ -274,21 +279,28 @@ Write an if-else statement that console logs which of the two arrays has the lar
 Remember an else statement that says if both are equal (very unlikely) */
 
 function checkIfOddOrEvenIsGreater(arrays) {
-  let odds = SumElsInArray(sumFilterDelimiter(arrays, 2, 1));
-  let evens = SumElsInArray(sumFilterDelimiter(arrays, 2, 0));
+  const odds = SumElsInArray(sumFilterDelimiter(arrays, 2, 1));
+  const evens = SumElsInArray(sumFilterDelimiter(arrays, 2, 0));
+  let svar = "";
   if (odds - evens > 0) {
-    console.log("There are more odd numbers");
+    svar += "There are more odd numbers";
   } else if (odds - evens < 0) {
-    console.log("There are more even numbers");
+    svar += "There are more even numbers";
   } else {
-    console.log("There is equal amount of both even and odd numbers");
+    svar += "There is equal amount of both even and odd numbers";
   }
+  console.log(svar);
+  return [odds, evens, svar];
 }
-
-checkIfOddOrEvenIsGreater(testsvar);
+let odds, evens, svars;
+[odds, evens, svars] = checkIfOddOrEvenIsGreater(testsvar);
 
 //? ordre fra oppgave 2.5 gjøres her.
-
+body.innerHTML += `
+  ${breakhtml}${breakhtml} Oppgave 2.4: Summer av alle odde tall er ${odds}, og partall er ${evens}. 
+  Dermed er svaret:${breakhtml}
+  `;
+body.innerHTML += svars;
 //! 2.5:
 
 /* Display the results from all steps in task 2 (2, 2.1, 2.2, 2.3, 2.4) with DOM in a good way */
