@@ -1,4 +1,5 @@
 const body = document.querySelector("body");
+const breakhtml = "<br/>";
 const peopleArrayWithObjects = [
   {
     id: 1,
@@ -49,7 +50,8 @@ console.log(peopleArrayWithObjects);
 
 //! 1.1:
 
-/* create variables for firstPerson (first person object in the array) and lastPerson (last person object in the array) for peopleArrayWithObjects: */
+/* create variables for firstPerson (first person object in the array) and lastPerson 
+(last person object in the array) for peopleArrayWithObjects: */
 const firstPerson = peopleArrayWithObjects[0];
 console.log(firstPerson);
 const lastPerson = peopleArrayWithObjects[peopleArrayWithObjects.length - 1];
@@ -64,7 +66,8 @@ console.log(Object.entries(lastPerson));
 */
 
 //! 1.3
-/* console.log the hobbies of the first person using Object.entries (tip: this is unnecessary code, but do it just to see the difference with what needs to be done later). 
+/* console.log the hobbies of the first person using Object.entries (tip: this is unnecessary code, 
+  but do it just to see the difference with what needs to be done later). 
 Expected output is to be an array with 4 elements */
 
 console.log(Object.entries(firstPerson.hobbies));
@@ -82,15 +85,18 @@ console.log(lastPerson.hobbies.map((hobby, index) => [index, hobby]));
 
 //! 1.5.
 
-/* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. Expected output is an array with common hobbies */
+/* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. 
+Expected output is an array with common hobbies */
 console.log(B_person_has_A_person_hobbies(lastPerson, firstPerson));
 function B_person_has_A_person_hobbies(Aperson, Bperson) {
   return Aperson.hobbies.filter((v) => Bperson.hobbies.includes(v));
 }
 //! 1.6.
 
-/* Use .map to display all the persons with their information on their page with the DOM. It should also show what hobbies they have in common. 
-Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
+/* Use .map to display all the persons with their information on their page with the DOM. 
+It should also show what hobbies they have in common. 
+Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. 
+  Remember to use defer if the script tag is in the head!) */
 
 function addliel(element) {
   let lis = document.createElement("li");
@@ -105,6 +111,7 @@ function displayPersonsInfo(Persons) {
     Object.keys(person).forEach((nokkel) => {
       switch (nokkel) {
         case "hobbies":
+          ul.appendChild(addliel(`${nokkel} = ${person[nokkel]}`));
           let ulhobby = document.createElement("ul");
           let equalhobbies = CheckEqualHobbiesTHEperson(person);
           Object.keys(equalhobbies).forEach((felleshobbyperson) => {
@@ -172,6 +179,22 @@ let result = createrandomarray(10);
 
 console.log(result);
 
+//? ordre fra oppgave 2.5 gjøres her.
+function displayArrayDOM(Arrays, depth = 1) {
+  body.innerHTML += `${breakhtml} [`;
+  Arrays.forEach((el) => {
+    if (depth !== 1) {
+      displayArrayDOM(el, depth - 1);
+    } else {
+      body.innerHTML += `${el}, `;
+    }
+  });
+  body.innerHTML += `]`;
+}
+
+body.innerHTML += `${breakhtml}${breakhtml} Random generert array for oppgave 2 er:`;
+displayArrayDOM(result);
+
 //! 2.1
 
 /* Separate odd and even numbers in the array you created in task 2 into two new arrays. console.log the new arrays. */
@@ -181,9 +204,18 @@ console.log(odd);
 let even = result.filter((v) => (v = v % 2 === 0));
 console.log(even);
 
+//? ordre fra oppgave 2.5 gjøres her.
+
+body.innerHTML += `${breakhtml}${breakhtml}${breakhtml} Dette er oppgave 2.1`;
+body.innerHTML += `${breakhtml}${breakhtml} Array fra oppgave 2 har navn result, og dens odde tall er følgende:`;
+displayArrayDOM(odd);
+body.innerHTML += `${breakhtml}${breakhtml} Array fra oppgave 2 har navn result, og dens partall tall er følgende:`;
+displayArrayDOM(even);
+
 //! 2.2
 
-/* Write a function that finds the largest number in the different arrays. Use a parameter so that the same function can be used on both arrays. Tips: Math.max() */
+/* Write a function that finds the largest number in the different arrays. 
+Use a parameter so that the same function can be used on both arrays. Tips: Math.max() */
 
 function largestElements(arrays) {
   let Maxs = [];
@@ -199,10 +231,16 @@ function largestElements(arrays) {
 let testsvar = createrandomarrayrecrusive(10);
 console.log(testsvar);
 console.log(largestElements(testsvar));
-console.log(createrandomarrayrecrusive(10));
+
+//? ordre fra oppgave 2.5 gjøres her.
+
+body.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.2, Random gerenerert 10X10 array er displayed under:`;
+displayArrayDOM(testsvar, 2);
+
 //! 2.3.
 
-/* Write a function that adds up all the numbers in the different arrays. So the sum of odd numbers in one result and the sum of even numbers in another result. 
+/* Write a function that adds up all the numbers in the different arrays. 
+So the sum of odd numbers in one result and the sum of even numbers in another result. 
 Use a parameter in the function so that the same function can be used on both arrays. console.log the results. */
 function SumElsInArray(array) {
   let sum = 0;
@@ -220,14 +258,20 @@ function sumFilterDelimiter(arrays, Delimter, Rest) {
   return sums;
 }
 
-console.log(sumFilterDelimiter(testsvar, 2, 1)); //consoles all odd number in 10 array testsvar is a "random" generated (10) [Array(10),....]
+console.log(sumFilterDelimiter(testsvar, 2, 1));
+//consoles all odd number in 10 array testsvar is a "random" generated (10) [Array(10),....]
 
-console.log(sumFilterDelimiter(testsvar, 2, 0)); //consoles all even number in 10 array testsvar is a "random" generated (10) [Array(10),....]
+console.log(sumFilterDelimiter(testsvar, 2, 0));
+//consoles all even number in 10 array testsvar is a "random" generated (10) [Array(10),....]
+
+//? ordre fra oppgave 2.5 gjøres her.
 
 //! 2.4
 
-/* Create a function that adds up the numbers in different arrays. Use 2 parameters to be able to use 2 different arrays (the odds and evens arrays you created earlier). 
-Write an if-else statement that console logs which of the two arrays has the largest sum. Remember an else statement that says if both are equal (very unlikely) */
+/* Create a function that adds up the numbers in different arrays. 
+Use 2 parameters to be able to use 2 different arrays (the odds and evens arrays you created earlier). 
+Write an if-else statement that console logs which of the two arrays has the largest sum. 
+Remember an else statement that says if both are equal (very unlikely) */
 
 function checkIfOddOrEvenIsGreater(arrays) {
   let odds = SumElsInArray(sumFilterDelimiter(arrays, 2, 1));
@@ -242,6 +286,8 @@ function checkIfOddOrEvenIsGreater(arrays) {
 }
 
 checkIfOddOrEvenIsGreater(testsvar);
+
+//? ordre fra oppgave 2.5 gjøres her.
 
 //! 2.5:
 
