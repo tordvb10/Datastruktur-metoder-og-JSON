@@ -84,8 +84,8 @@ console.log(lastPerson.hobbies.map((hobby, index) => [index, hobby]));
 
 /* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. 
 Expected output is an array with common hobbies */
-console.log(B_person_has_A_person_hobbies(lastPerson, firstPerson));
-function B_person_has_A_person_hobbies(Aperson, Bperson) {
+console.log(BPersonHasAPersonHobbies(lastPerson, firstPerson));
+function BPersonHasAPersonHobbies(Aperson, Bperson) {
   return Aperson.hobbies.filter((v) => Bperson.hobbies.includes(v));
 }
 //! 1.6.
@@ -143,13 +143,13 @@ function CheckEqualHobbiesTHEperson(Theperson) {
     if (Theperson.id === person.id) {
       return;
     }
-    returning[person.name] = B_person_has_A_person_hobbies(Theperson, person);
+    returning[person.name] = BPersonHasAPersonHobbies(Theperson, person);
   });
   return returning;
 }
 console.log(CheckEqualHobbiesTHEperson(firstPerson));
 body.innerHTML += "Oppgave 1.7 er også gjort i oppgave 1.6";
-//B_person_has_A_person_hobbies(firstPerson)
+//BPersonHasAPersonHobbies(firstPerson)
 
 //! 2
 
@@ -299,6 +299,12 @@ body.innerHTML += `
   Dermed er svaret:${breakhtml}
   `;
 body.innerHTML += svars;
-body.classList.add("oppgave");
 //! 2.5:
 /* Display the results from all steps in task 2 (2, 2.1, 2.2, 2.3, 2.4) with DOM in a good way */
+body.innerHTML += `${breakhtml}${breakhtml}
+Som svar på forespørsel av kommentar på oppgaven,
+så viser jeg at det går an å bruke funskjonen til å generere et
+array array med tilfeldig elementer, attributes er også definert for oppgaven hvis man ikke definerer de selv ved input.
+Dvs. at array av ulike lengder kan generes, og av ulike dimensjoner. Som for eksempel: ${breakhtml}${breakhtml}
+createrandomarrayrecrusive(10, 1) =`;
+displayArrayDOM(createrandomarrayrecrusive(10, 1));
