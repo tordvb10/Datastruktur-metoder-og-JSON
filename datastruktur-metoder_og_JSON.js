@@ -1,5 +1,4 @@
 const body = document.body;
-const divs = document.createElement("div");
 const breakhtml = "<br/>";
 const peopleArrayWithObjects = [
   {
@@ -190,10 +189,8 @@ function displayArrayDOM(Arrays, depth = 1) {
   });
   body.innerHTML += `]`;
 }
-body.appendChild(divs);
-const bodydivs = body.querySelector("div");
 //body.innerHTML += `<div>`;
-bodydivs.innerHTML += `${breakhtml}${breakhtml} Random generert array for oppgave 2 er:`;
+body.innerHTML += `${breakhtml}${breakhtml} Random generert array for oppgave 2 er:`;
 displayArrayDOM(result);
 
 //! 2.1
@@ -207,10 +204,10 @@ console.log(even);
 
 //? ordre fra oppgave 2.5 gjøres her.
 
-bodydivs.innerHTML += `${breakhtml}${breakhtml}${breakhtml} Dette er oppgave 2.1`;
-bodydivs.innerHTML += `${breakhtml}${breakhtml} Array fra oppgave 2 har navn result, og dens odde tall er følgende:`;
+body.innerHTML += `${breakhtml}${breakhtml}${breakhtml} Dette er oppgave 2.1`;
+body.innerHTML += `${breakhtml}${breakhtml} Array fra oppgave 2 har navn result, og dens odde tall er følgende:`;
 displayArrayDOM(odd);
-bodydivs.innerHTML += `${breakhtml}${breakhtml} Array fra oppgave 2 har navn result, og dens partall tall er følgende:`;
+body.innerHTML += `${breakhtml}${breakhtml} Array fra oppgave 2 har navn result, og dens partall tall er følgende:`;
 displayArrayDOM(even);
 
 //! 2.2
@@ -235,7 +232,7 @@ console.log(largestElements(testsvar));
 
 //? ordre fra oppgave 2.5 gjøres her.
 
-bodydivs.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.2, Random gerenerert 10X10 array er displayed under:`;
+body.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.2, Random gerenerert 10X10 array er displayed under:`;
 displayArrayDOM(testsvar, 2);
 
 //! 2.3.
@@ -267,9 +264,9 @@ console.log(summArrayEVENNumbers);
 //consoles all even number in 10 array testsvar is a "random" generated (10) [Array(10),....]
 
 //? ordre fra oppgave 2.5 gjøres her.
-bodydivs.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.3, under er summert odde tall fra alle arrays:`;
+body.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.3, under er summert odde tall fra alle arrays:`;
 displayArrayDOM(summArrayODDNumbers);
-bodydivs.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.3, under er summert partall fra alle arrays:`;
+body.innerHTML += `${breakhtml}${breakhtml} Oppgave 2.3, under er summert partall fra alle arrays:`;
 displayArrayDOM(summArrayEVENNumbers);
 
 //! 2.4
@@ -297,12 +294,11 @@ let odds, evens, svars;
 [odds, evens, svars] = checkIfOddOrEvenIsGreater(testsvar);
 
 //? ordre fra oppgave 2.5 gjøres her.
-bodydivs.innerHTML += `
+body.innerHTML += `
   ${breakhtml}${breakhtml} Oppgave 2.4: Summer av alle odde tall er ${odds}, og partall er ${evens}. 
   Dermed er svaret:${breakhtml}
   `;
-bodydivs.innerHTML += svars;
-bodydivs.classList.add("oppgave");
+body.innerHTML += svars;
+body.classList.add("oppgave");
 //! 2.5:
-console.log(bodydivs);
 /* Display the results from all steps in task 2 (2, 2.1, 2.2, 2.3, 2.4) with DOM in a good way */
