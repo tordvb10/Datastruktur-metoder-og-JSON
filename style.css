@@ -1,0 +1,9 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: bisque;
+  font-family: "Courier New", Courier, monospace;
+  width: 80%;
+  left: 10%;
+  position: relative;
+}
